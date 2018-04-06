@@ -5,6 +5,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import com.codeborne.selenide.testng.TextReport;
 import com.example.constants.Constants;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Optional;
@@ -18,7 +19,7 @@ public abstract class BaseTest {
         Configuration.timeout = 10000;
 
         System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+        //SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
     @BeforeSuite(alwaysRun = true)

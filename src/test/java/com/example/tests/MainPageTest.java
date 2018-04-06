@@ -2,6 +2,8 @@ package com.example.tests;
 
 import com.codeborne.selenide.testng.annotations.Report;
 import com.example.BaseTest;
+import com.example.steps.DataPageSteps;
+import com.example.steps.DatasetPageSteps;
 import com.example.steps.MainPageSteps;
 import com.example.steps.SearchPageSteps;
 import org.hamcrest.Matcher;
@@ -24,14 +26,14 @@ public class MainPageTest extends BaseTest {
     }
 
     // iit-234
-    @Test(groups = "regression", dataProvider = "search")
+    /*@Test(groups = "regression", dataProvider = "search")
     public void search(String searchText, Matcher highlighted)  {
-        MainPageSteps mainPageSteps = new MainPageSteps();
+        *//*MainPageSteps mainPageSteps = new MainPageSteps();
         mainPageSteps.openMainPage()
                 .checkSearchInputPlaceholder("Поиск по 929 наборам данных и материалам портала")
-                .searchFor(searchText);
+                .searchFor(searchText);*//*
 
-        SearchPageSteps searchSteps = new SearchPageSteps();
+        *//*SearchPageSteps searchSteps = new SearchPageSteps();
         searchSteps.getPage().shouldBeOpened();
         searchSteps.checkSearchInputValue(searchText)
                 .checkOverallNumberExist()
@@ -39,7 +41,52 @@ public class MainPageTest extends BaseTest {
                 .checkSearchTypeExists("Материалы портала")
                 .checkSearchTypeExists("По наборам данных")
                 .checkSearchTypeSelected("По наборам данных")
-                .checkElementsHighlighted(highlighted);
+                .checkElementsHighlighted(highlighted);*//*
+
+        DataPageSteps dataSteps = new DataPageSteps();
+        dataSteps.openPage();
+        dataSteps.getPage().shouldBeOpened();
+        dataSteps.checkElementsExists();
     }
+*/
+    @Test(groups = "regression")
+    public void checkDropDescription()
+    {
+        DataPageSteps dataSteps = new DataPageSteps();
+        dataSteps.openPage();
+        dataSteps.getPage().shouldBeOpened();
+        dataSteps.checkElementsExists()
+                .clickOnDescIcon()
+                .checkDropDescStatus("true")
+                .clickOnDescIcon()
+                .checkDropDescStatus("false");
+    }
+
+    @Test(groups = "regression")
+    public void checkJsonDownload()
+    {
+        DataPageSteps dataSteps = new DataPageSteps();
+        dataSteps.openPage();
+        dataSteps.getPage().shouldBeOpened();
+        dataSteps.checkElementsExists()
+                .clickOnExportButton()
+                .checkExportMenuVisibility("true")
+                .clickOnJsonExportFormat();
+    }
+
+    @Test(groups = "regression")
+    public void check3()
+    {
+        DatasetPageSteps datasetSteps = new DatasetPageSteps();
+        datasetSteps.openPage();
+        datasetSteps.getPage().shouldBeOpened();
+        datasetSteps.checkIdCellValue()
+                .checkButtonsExists()
+                .clickMapButton()
+                .checkMapButtonBecomeBlue()
+                .checkMapAppear();
+    }
+
+
 
 }

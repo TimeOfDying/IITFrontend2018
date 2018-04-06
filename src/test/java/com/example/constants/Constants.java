@@ -6,7 +6,7 @@ public class Constants {
 
     public static final String BROWSER_CHROME = "chrome";
 
-    public static final String SCREEN_DESKTOP = "1024x1280";
+    public static final String SCREEN_DESKTOP = "1920x1080";
 
 
     private Constants() {
