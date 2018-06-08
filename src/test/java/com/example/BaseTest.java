@@ -19,12 +19,12 @@ public abstract class BaseTest {
         Configuration.timeout = 10000;
 
         System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
-        //SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+        System.setProperty("webdriver.gecko.driver", "src/test/resources/drivers/geckodriver.exe");
     }
 
     @BeforeSuite(alwaysRun = true)
     @Parameters({ Constants.CONFIG_BROWSER, Constants.CONFIG_SCREEN })
-    protected void setBrowser(@Optional(Constants.BROWSER_CHROME) String browser, @Optional(Constants.SCREEN_DESKTOP) String screen) {
+    protected void setBrowser(@Optional(Constants.BROWSER_FIREFOX) String browser, @Optional(Constants.SCREEN_DESKTOP) String screen) {
         Configuration.browser = browser;
         Configuration.browserSize = screen;
     }

@@ -15,20 +15,23 @@ public class DataPageSteps extends BaseSteps<DataPage> {
         return this;
     }
 
+
+
     public DataPageSteps checkElementsExists()
     {
-        getPage().getDatasetNumber().shouldBe(visible);
-        getPage().getDatasetCaption().shouldBe(visible);
-        getPage().getDatasetDescIcon().shouldBe(visible);
-        getPage().getDatasetIcon().shouldBe(visible);
-        getPage().getExport().shouldBe(visible);
-        getPage().getPassport().shouldBe(visible);
+
+        page.getDatasetNumber().shouldBe(visible);
+        page.getDatasetCaption().shouldBe(visible);
+        page.getDatasetDescIcon().shouldBe(visible);
+        page.getDatasetIcon().shouldBe(visible);
+        page.getExport().shouldBe(visible);
+        page.getPassport().shouldBe(visible);
         return this;
     }
 
     public DataPageSteps clickOnDescIcon()
     {
-        getPage().getDatasetDescIcon().click();
+        page.getDatasetDescIcon().click();
         return this;
     }
 
@@ -36,32 +39,32 @@ public class DataPageSteps extends BaseSteps<DataPage> {
     {
         if(iconStatus == "true")
         {
-            getPage().getDatasetDescIcon().shouldHave(attribute("aria-expanded", iconStatus));
-            getPage().getDropDesc().shouldBe(visible);
+            page.getDatasetDescIcon().shouldHave(attribute("aria-expanded", iconStatus));
+            page.getDropDesc().shouldBe(visible);
         }
         else
         {
-            getPage().getDatasetDescIcon().shouldHave(attribute("aria-expanded",iconStatus));
-            getPage().getDropDesc().shouldNotBe(visible);
+            page.getDatasetDescIcon().shouldHave(attribute("aria-expanded",iconStatus));
+            page.getDropDesc().shouldNotBe(visible);
         }
         return this;
     }
 
     public DataPageSteps clickOnExportButton()
     {
-        getPage().getExport().click();
+        page.getExport().click();
         return this;
     }
 
     public DataPageSteps clickOnJsonExportFormat()
     {
-        getPage().getJsonExport().click();
+        page.getJsonExport().click();
         return this;
     }
 
     public DataPageSteps checkExportMenuVisibility(String expectedValue)
     {
-        getPage().getExport().shouldHave(attribute("aria-expanded",expectedValue));
+        page.getExport().shouldHave(attribute("aria-expanded",expectedValue));
         return this;
     }
 }

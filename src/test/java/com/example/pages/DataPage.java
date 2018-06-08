@@ -28,16 +28,6 @@ public class DataPage extends AbstractPage {
         return category;
     }
 
-    public SelenideElement getDatasetNumber()
-    {
-        return $(".dataset-icon");
-    }
-
-    public SelenideElement getDatasetIcon() {
-
-        return $(".dataset-icon");
-    }
-
     public SelenideElement getDatasetCaption()
     {
         return $(".dataset-caption");
@@ -55,6 +45,7 @@ public class DataPage extends AbstractPage {
 
     public SelenideElement getPassport()
     {
+
         return $("#dropPassportLink");
     }
 
@@ -68,4 +59,13 @@ public class DataPage extends AbstractPage {
         return $("[onclick*=json]");
     }
 
+    public SelenideElement getDatasetNumber()
+    {
+        return $(".dataset-icon");
+    }
+
+    public SelenideElement getDatasetIcon() {
+
+        return $(".dataset-icon");
+    }
 }
